@@ -25,6 +25,6 @@ namespace PaymentContext.Domain.Entities
 
         public string CardHolderName { get; private set; }
         public string CardNumber { get; private set; }
-        public string LastTransactionNumber { private get; set; }
+        public string LastTransactionNumber { get; private set; }
     }
 }
