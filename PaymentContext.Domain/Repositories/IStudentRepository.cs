@@ -4,7 +4,7 @@ namespace PaymentContext.Domain.Repositories
 {
     public interface IStudentRepository
     {
-        bool DocumentExists(string Document);
+        bool DocumentExists(string document);
         bool EnailExists(string email);
         void CreateSubscription(Student student);
     }
