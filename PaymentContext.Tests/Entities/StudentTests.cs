@@ -27,19 +27,19 @@ namespace PaymentContext.Tests
         }
 
         [TestMethod]
-        public void ShouldReturnErrorWhenHadActiveSubscription()
+        public void ShouldReturnErrorWhenActiveSubscriptionHasNoPayment()
         {
-            var payment = new PayPalPayment("12345678",DateTime.Now, DateTime.Now.AddDays(5), 10, 10, "Wayne Corp", _document, _address, _email);
-            _subscription.AddPayment(payment);
-            _student.AddSubscription(_subscription);
-            _student.AddSubscription(_subscription);
+            _student.AddSubscription(_subscription);            
             Assert.IsTrue(_student.Invalid);
         }
 
         [TestMethod]
-        public void ShouldReturnErrorWhenActiveSubscriptionHasNoPayment()
+        public void ShouldReturnErrorWhenHadActiveSubscription()
         {
-            _student.AddSubscription(_subscription);            
+            var payment = new PayPalPayment("12345678", DateTime.Now, DateTime.Now.AddDays(5), 10, 10, "Wayne Corp", _document, _address, _email);
+            _subscription.AddPayment(payment);
+            _student.AddSubscription(_subscription);
+            _student.AddSubscription(_subscription);
             Assert.IsTrue(_student.Invalid);
         }
 
